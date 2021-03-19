@@ -1,0 +1,34 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: xxx
+            client-secret: xxxxx
+#           azuread:
+#             client-id: xxx
+#             client-secret: xxx
+#             client-name: Azure Active Directory
+#             scope:
+#               - openid
+#             client-authentication-method: post
+#             authorization-grant-type: authorization_code
+#             redirect-uri: http://localhost:8080/cb-login
+#
+#        provider:
+#          azuread:
+#            token-uri: https://login.microsoftonline.com/xxxx/oauth2/token
+#            authorization-uri: https://login.microsoftonline.com/xxxxx/oauth2/authorize
+#            user-info-uri: https://graph.windows.net/me?api-version=1.6
+#            user-name-attribute:
+#azure:
+#  activedirectory:
+#    tenant-id: xxx
+#    client-id: xxxx
+#    client-secret: xxxx
+#    user-group:
+#      allowed-groups: xxxx
+#    authorization-clients:
+#      graph:
+#        scopes: openid,User.Read

@@ -1,0 +1,66 @@
+#spring:
+#  security:
+#    oauth2:
+#      client:
+#        #useCurrentUri: false
+#        registration:
+#          #          github:
+#          #            client-id: ccccccc
+#          #            client-secret: cccccc
+#          azure:
+#            client-id: x
+#            client-secret: 6y
+#            client-name: Azure Active Directory
+#            scope: openid
+#            client-authentication-method: post
+#            authorization-grant-type: authorization_code
+#            redirect-uri-template: "{baseUrl}/login/oauth2/code/{registrationId}"
+#            #redirect-uri: http://localhost:8080/login/oauth2/code/azure
+#            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+#            #redirect-uri: http://localhost:8080/cb-login
+#        #redirect_uri=http://localhost:8080/login/oauth2/code/
+#
+#        provider:
+#          azure:
+#            token-uri: https://login.microsoftonline.com/xxxxxxxx/oauth2/token
+#            authorization-uri: https://login.microsoftonline.com/yyyyyyyy/oauth2/authorize
+#            user-info-uri: https://graph.windows.net/me?api-version=1.6
+#            user-name-attribute: vvvvv
+#        #registered-redirect-uri: http://localhost:8080/cb-login
+
+azure:
+  activedirectory:
+    tenant-id: {tenant-id}
+    client-id: {client-id}
+    client-secret: {client-secret}
+    user-group:
+      allowed-groups: {allowed-groups}
+    authorization-clients:
+      graph:
+        scopes:
+    #この設定は非推奨となっている。Spring標準のOAuthクライアントの設定では変更ができるが、AADは独自実装が多く、この設定のカスタマイズは不可。
+    redirect-uri-template: {base-uri}/login/oauth2/code/
+    # 設定を行ってもredirect-uriの設定は反映されない。
+    #base-uri: https/localhost:8080/example
+
+#    session-stateless: true
+#Group
+#https://stackoverflow.com/questions/63518264/spring-security-and-azure-is-there-a-active-directory-group-wildcard
+#Application
+
+
+
+#security:
+#  oauth2:
+#    client:
+#      pre-established-redirect-uri: http://localhost:8080/cb-login
+#      registered-redirect-uri: http://localhost:8080/cb-login
+#      use-current-uri: false
+
+server:
+  forward-headers-strategy: native
+  #  use-forward-headers: true
+  servlet:
+    #context-path: /example
+#  level:
+#    org.springframework.security: DEBUG
